@@ -16,7 +16,7 @@ public class GadgetShop {
         JFrame frame = new JFrame("Gadget Shop");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-        frame.setLayout(new GridLayout(12, 2));
+        frame.setLayout(new GridLayout(13, 2));
 
         modelField = new JTextField();
         priceField = new JTextField();
@@ -52,31 +52,55 @@ public class GadgetShop {
         frame.add(new JLabel("Display Number:"));
         frame.add(displayNumberField);
 
-        frame.add(new JScrollPane(displayArea));
-
         JButton addMobileButton = new JButton("Add Mobile");
-        addMobileButton.addActionListener(e -> addMobile());
+        addMobileButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addMobile();
+            }
+        });
         frame.add(addMobileButton);
 
         JButton addMP3Button = new JButton("Add MP3");
-        addMP3Button.addActionListener(e -> addMP3());
+        addMP3Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addMP3();
+            }
+        });
         frame.add(addMP3Button);
 
         JButton clearButton = new JButton("Clear Fields");
-        clearButton.addActionListener(e -> clearFields());
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                clearFields();
+            }
+        });
         frame.add(clearButton);
 
         JButton displayAllButton = new JButton("Display All");
-        displayAllButton.addActionListener(e -> displayAll());
+        displayAllButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayAll();
+            }
+        });
         frame.add(displayAllButton);
 
         JButton makeCallButton = new JButton("Make Call");
-        makeCallButton.addActionListener(e -> makeCall());
+        makeCallButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                makeCall();
+            }
+        });
         frame.add(makeCallButton);
 
         JButton downloadMusicButton = new JButton("Download Music");
-        downloadMusicButton.addActionListener(e -> downloadMusic());
+        downloadMusicButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                downloadMusic();
+            }
+        });
         frame.add(downloadMusicButton);
+
+        frame.add(new JScrollPane(displayArea));
 
         frame.setVisible(true);
     }
@@ -140,7 +164,7 @@ public class GadgetShop {
                 Mobile mobile = (Mobile) gadgets.get(displayNumber);
                 String phoneNumber = phoneNumberField.getText();
                 int duration = Integer.parseInt(durationField.getText());
-                mobile.:makeCall(phoneNumber, duration);
+                mobile.makeCall(phoneNumber, duration);
                 displayArea.append("Made Call: " + phoneNumber + " for " + duration + " minutes.\n");
             } else {
                 JOptionPane.showMessageDialog(null, "Selected gadget is not a mobile.");
@@ -175,35 +199,11 @@ public class GadgetShop {
     }
 }
 
-/**
- * Write a description of class Gadgetshop here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Gadgetshop
-{
-    // instance variables - replace the example below with your own
-    private int x;
+     
+       
 
-    /**
-     * Constructor for objects of class Gadgetshop
-     */
-    public Gadgetshop()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
-}
+         
+ 
+     
+  
+   
